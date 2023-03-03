@@ -50,7 +50,7 @@ class CustomToken
     /**
      * Find matched brackets
      * 
-     * @return int|boolean
+     * @return int|bool
      */
     private function findBrackets(string $brackets, string $string)
     {
