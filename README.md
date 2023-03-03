@@ -50,6 +50,12 @@ He desarrollado un Middleware `CustomToken` que gestiona la validación del Bear
 
 El controlador `ShortenUrlsController` se encarga de gestionar la llamada a Tinyurl y devolver una respuesta Json con los datos.
 
+He implementado 3 tests para comprobar las respuestas de los caso siguientes:
+
+-   Llamada al endpoint con un Bearer token válido devuelve `Status:200`.
+-   LLamada al endpoint con un Bearer token válido pero sin el parámetro `url` en el BODY devuelve `Status:422`.
+-   Llamada al endpoint con un Bearer token no válido devuelve `Status:403`.
+
 He utilizado:
 
 -   Laravel Framework 8.83.27
