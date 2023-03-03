@@ -17,7 +17,7 @@ class CustomToken
     public function handle(Request $request, Closure $next)
     {
         $bearerToken = $request->bearerToken() ?? '';
-        if($bearerToken === '' && $this->openClosedBrackets($bearerToken)){
+        if($bearerToken === '' || $this->openClosedBrackets($bearerToken)){
             return $next($request);
         }
 
