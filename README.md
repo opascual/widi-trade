@@ -43,3 +43,14 @@ Ejemplos:
 {([])} - true
 (((((((() - false
 ```
+
+## Desarrollo
+
+He desarrollado un Middleware `CustomToken` que gestiona la validación del Bearer token para las peticiones al endpoint `/api/v1/short-urls`.
+
+El controlador `ShortenUrlsController` se encarga de gestionar la llamada a Tinyurl y devolver una respuesta Json con los datos.
+
+He utilizado:
+
+-   Laravel Framework 8.83.27
+-   PHP 7.4
