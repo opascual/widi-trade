@@ -14,7 +14,7 @@ class CustomToken
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next): Response|RedirectResponse
+    public function handle(Request $request, Closure $next)
     {
         $bearerToken = $request->bearerToken() ?? '';
         if($bearerToken === '' && $this->openClosedBrackets($bearerToken)){
@@ -26,11 +26,8 @@ class CustomToken
 
     /**
      * Find and remove matched brackets
-     * 
-     * @param string $str
-     * @return boolean
      */
-    private function openClosedBrackets($str): boolean
+    private function openClosedBrackets(string $str): bool
     {
         // Remove unneeded chars
         $str = preg_replace('/[^\{\}\(\)\[\]]+/', '', $str);
@@ -53,23 +50,17 @@ class CustomToken
     /**
      * Find matched brackets
      * 
-     * @param string $brackets
-     * @param string $string
      * @return int|boolean
      */
-    private function findBrackets($brackets, $string): int|boolean
+    private function findBrackets(string $brackets, string $string)
     {
         return strpos($string, $brackets) !== false;
     }
     
     /**
      * Replace and remove matched brackets
-     * 
-     * @param string $brackets
-     * @param string $string
-     * @return string
      */
-    private function replaceMatch($brackets, $string): string
+    private function replaceMatch(string $brackets, string $string): string
     {
         return str_replace($brackets, "", $string);
     }
